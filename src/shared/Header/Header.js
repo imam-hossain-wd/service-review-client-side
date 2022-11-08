@@ -147,7 +147,7 @@ const Header = () => {
                             <rect x="14" y="11" width="7" height="12" />
                           </svg>
                           <span class="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
-                            Company
+                            Super zone
                           </span>
                         </Link>
                       </div>
@@ -170,14 +170,17 @@ const Header = () => {
                     <nav>
                       <ul class="space-y-4">
                         <li>
-                        <Link
-                    to="/service"
-                    aria-label="Our product"
-                    title="Our product"
-                    class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
-                  >
-                    Service
-                  </Link>
+               
+                        </li>
+                        <li>
+                          <Link
+                            to="/service"
+                            aria-label="Our product"
+                            title="Our product"
+                            class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                          >
+                           Service
+                          </Link>
                         </li>
                         <li>
                           <Link
@@ -190,14 +193,14 @@ const Header = () => {
                           </Link>
                         </li>
                         <li>
-                        <Link
-                    to="/pricing"
-                    aria-label="Our product"
-                    title="Our product"
-                    class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
-                  >
-                    Pricing
-                  </Link>
+                          <Link
+                            to="/pricing"
+                            aria-label="Our product"
+                            title="Our product"
+                            class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                          >
+                          Pricing
+                          </Link>
                         </li>
                         <li>
                           <Link

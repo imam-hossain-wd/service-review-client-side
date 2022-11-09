@@ -6,7 +6,7 @@ import { FaGithub, FaGoogle } from 'react-icons/fa';
 
 
 const Login = () => {
-const {logInAuth} = useContext(userContext)
+const {logInAuth , logInWithGoogle , logInWithGithub} = useContext(userContext)
 
 
 // log in email and password
@@ -28,12 +28,33 @@ const {logInAuth} = useContext(userContext)
 		  })
 	} 
 
-
+	//  log in with github
+	const singInWithGithub = ()=>{
+		logInWithGithub()
+		.then((result) => {
+		const user = result.user;
+		console.log(user);
+		
+		  }).catch((error) => {
+		console.log(error);
+		  });
+	}
+// sing in with google 
+const singInWithGoogle=()=>{
+	logInWithGoogle()
+	.then((result) =>{
+		const user = result.user;
+		console.log(user);
+	})
+	.catch((error)=>{
+		console.log(error);
+	})
+}
 
     return (
 		<div>
 		
-        <div style={{backgroundColor:'#111827'}} onSubmit={singInHandler} className="w-full max-w-md p-8 space-y-3 rounded-xl  text-white " >
+        <div style={{backgroundColor:'#111827'}} onSubmit={singInHandler} className="w-full max-w-md p-8 space-y-3 rounded-xl  text-white mt-5" >
 	<h1 className="text-2xl font-bold text-center">Log In</h1>
 	<p className='text-center'>Sign in to access your account</p>
 	<form noValidate="" action="" className="space-y-6 ng-untouched ng-pristine ng-valid">
@@ -60,11 +81,11 @@ const {logInAuth} = useContext(userContext)
 	<div className="flex justify-center space-x-4">
 	
 		
-		<button  aria-label="Log in with Twitter" className="p-3 rounded-sm">
+		<button onClick={singInWithGoogle} aria-label="Log in with Twitter" className="p-3 rounded-sm">
       <Link className='text-2xl'><FaGoogle/></Link>
 		</button>
 
-		<button  aria-label="Log in with GitHub" className="p-3 rounded-sm">
+		<button onClick={singInWithGithub} aria-label="Log in with GitHub" className="p-3 rounded-sm">
 		<Link className='text-2xl'><FaGithub></FaGithub> </Link>
 		</button>
 	</div>

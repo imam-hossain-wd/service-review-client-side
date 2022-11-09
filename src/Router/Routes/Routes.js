@@ -5,6 +5,7 @@ import Service from '../../components/services/Services'
 import Blog from "../../components/blog/Blog";
 import Login from "../../components/login/Login";
 import Register from "../../components/register/Register";
+import Checkout from "../../components/Checkout/Checkout";
 
 
 
@@ -17,6 +18,11 @@ export const router = createBrowserRouter([
         {path:"/blog", element: <Blog/> },
         {path:"/login", element: <Login/> },
         {path:"/register", element: <Register/> },
+        {
+            path: '/checkout/:id',
+            element: <Checkout />,
+            loader: ({params})=> fetch(`http://localhost:5000/services/${params.id}`)
+          },
     ]
 
 }

@@ -53,9 +53,21 @@ const Header = () => {
                 </span>
               </Link>
               <ul className="flex items-center hidden space-x-8 lg:flex">
+                
+              <li>
+                  <Link
+                    to="/home"
+                    aria-label="Our product"
+                    title="Our product"
+                    className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+                  >
+                    Home
+                  </Link>
+                </li>
+
                 <li>
                   <Link
-                    to="/service"
+                    to="/services"
                     aria-label="Our product"
                     title="Our product"
                     className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
@@ -63,6 +75,18 @@ const Header = () => {
                     Service
                   </Link>
                 </li>
+                
+                <li>
+                  <Link
+                    to="/booking"
+                    aria-label="Product pricing"
+                    title="Product pricing"
+                    className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+                  >
+                    Booking
+                  </Link>
+                </li>
+
                 <li>
                   <Link
                     to="/blog"
@@ -71,26 +95,6 @@ const Header = () => {
                     className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
                   >
                     Blog
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/orders"
-                    aria-label="Product pricing"
-                    title="Product pricing"
-                    className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
-                  >
-                    Orders
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/about"
-                    aria-label="About us"
-                    title="About us"
-                    className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
-                  >
-                    About us
                   </Link>
                 </li>
               </ul>

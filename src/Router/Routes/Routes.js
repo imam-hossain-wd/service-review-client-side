@@ -7,7 +7,7 @@ import Login from "../../components/login/Login";
 import Register from "../../components/register/Register";
 import Checkout from "../../components/Checkout/Checkout";
 import NotFound from "../../components/NotFound/NotFound";
-import Order from "../../components/Orders/Order";
+import Booking from "../../components/Booking/Booking";
 
 
 
@@ -16,16 +16,16 @@ export const router = createBrowserRouter([
     children:[
         {path:"/", element: <Home/>},
         {path:"/home", element: <Home/>},
-        {path:"/service", element: <Service/> },
+        {path:"/services", element: <Service/> },
         {path:"/blog", element: <Blog/> },
-        {path:"/orders", element: <Order/> },
+        {path:"/booking", element: <Booking/> },
         {path:"/login", element: <Login/> },
         {path:"/register", element: <Register/> },
         {path:"*", element: <NotFound/> },
         {
             path: '/checkout/:id',
             element: <Checkout />,
-            loader: ({params})=> fetch(`https://service-review-server-xi.vercel.app/${params.id}`)
+            loader: ({params})=> fetch(`http://localhost:5000/services/${params.id}`)
           },
     ]
 

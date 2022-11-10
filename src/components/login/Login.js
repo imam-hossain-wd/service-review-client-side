@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { userContext } from '../../Context/AuthContext';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
+import { toast } from 'react-toastify';
 
 
 
@@ -20,10 +21,15 @@ const {logInAuth , logInWithGoogle , logInWithGithub} = useContext(userContext)
 		.then((userCredential) => {	
 			const user = userCredential.user;
 			console.log(user);
+			toast.success("Successfully log in !", {
+				position: toast.POSITION.TOP_CENTER
+			  });
 		  })
 		  .catch((error) => {
 			const errorMessage = error.message;
-			console.log(errorMessage);
+			toast.error(errorMessage, {
+				position: toast.POSITION.TOP_CENTER
+			  });
 			
 		  })
 	} 
@@ -34,9 +40,16 @@ const {logInAuth , logInWithGoogle , logInWithGithub} = useContext(userContext)
 		.then((result) => {
 		const user = result.user;
 		console.log(user);
+		toast.success("Successfully Log in Github !", {
+			position: toast.POSITION.TOP_CENTER
+		  });
+		
 		
 		  }).catch((error) => {
-		console.log(error);
+			const errorMessage = error.message;
+			toast.error(errorMessage, {
+				position: toast.POSITION.TOP_CENTER
+			  });
 		  });
 	}
 // sing in with google 
@@ -45,9 +58,36 @@ const singInWithGoogle=()=>{
 	.then((result) =>{
 		const user = result.user;
 		console.log(user);
+		toast.success("Successfully log in with Google !", {
+			position: toast.POSITION.TOP_CENTER
+		  });
+		  const currentUser = {
+			email: user.email
+		}
+
+		console.log(currentUser);
+
+		// get jwt token
+		fetch('http://localhost:5000/jwt', {
+			method: 'POST',
+			headers: {
+				'content-type': 'application/json'
+			},
+			body: JSON.stringify(currentUser)
+		})
+		.then(res => res.json())
+		.then(data => {
+			console.log(data);
+			localStorage.setItem('genius-token', data.token);
+			
+		});
 	})
 	.catch((error)=>{
-		console.log(error);
+		const errorMessage = error.message;
+			toast.error(errorMessage, {
+				position: toast.POSITION.TOP_CENTER
+			});
+
 	})
 }
 

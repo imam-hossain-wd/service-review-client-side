@@ -1,9 +1,26 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { userContext } from "../../Context/AuthContext";
+import { toast } from 'react-toastify';
 
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const {user , logOut} = useContext(userContext);
+
+    console.log(user?.email);
+
+    const handleLogOut = ()=>{
+      logOut()
+      .then(() => { 
+        toast.success("Log out successfully" ,{
+          position: toast.POSITION.TOP_CENTER
+          });
+        
+        
+      })
+      .catch(error => console.error(error));;
+    }
  
   
     return (
@@ -78,7 +95,20 @@ const Header = () => {
                 </li>
               </ul>
             </div>
+            {user?.email && <p>{user?.email}</p> }
             <ul className="flex items-center hidden space-x-8 lg:flex">
+              {
+                user?.email ?  <li onClick={handleLogOut} >
+                <Link
+                  to="/Register"
+                  className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                  aria-label="Sign up"
+                  title="Sign up"
+                >
+                 Log out
+                </Link>
+              </li> : 
+              <>
               <li>
                 <Link
                   to="/login"
@@ -99,6 +129,10 @@ const Header = () => {
                  Register
                 </Link>
               </li>
+              </>
+              }
+              
+              
             </ul>
             <div className="lg:hidden">
               <button

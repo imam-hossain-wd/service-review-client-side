@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { userContext } from '../../Context/AuthContext';
+import { toast } from 'react-toastify';
 
 const Checkout = () => {
     const { _id, title, price} = useLoaderData();
@@ -15,7 +16,40 @@ const Checkout = () => {
         const phone = form.phone.value;
         const message = form.message.value;
 
+        const booking = {
+            booking: _id,
+            bookingName: title,
+            price,
+            customer: name,
+            email,
+            phone,
+            message
+        }
        
+
+        fetch('http://localhost:5000/booking', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+                authorization: `Bearer ${localStorage.getItem('service-booking')}`
+            },
+            body: JSON.stringify(booking)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if(data.acknowledged){
+                    toast.success('booking placed successfully',
+                        {
+                            position: toast.POSITION.TOP_CENTER
+                          }
+                    )
+                    form.reset();
+                    
+                }
+            })
+            .catch(er => console.error(er));
+
 
 
     }

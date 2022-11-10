@@ -7,6 +7,7 @@ import Login from "../../components/login/Login";
 import Register from "../../components/register/Register";
 import Checkout from "../../components/Checkout/Checkout";
 import NotFound from "../../components/NotFound/NotFound";
+import Order from "../../components/Orders/Order";
 
 
 
@@ -17,6 +18,7 @@ export const router = createBrowserRouter([
         {path:"/home", element: <Home/>},
         {path:"/service", element: <Service/> },
         {path:"/blog", element: <Blog/> },
+        {path:"/orders", element: <Order/> },
         {path:"/login", element: <Login/> },
         {path:"/register", element: <Register/> },
         {path:"*", element: <NotFound/> },

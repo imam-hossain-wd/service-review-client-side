@@ -13,9 +13,9 @@ const Register = () => {
         const email = form.email.value;
         const name = form.name.value;
         const password = form.password.value;
-        const photoURL = form.url.value;
+        // const photoURL = form.url.value;
 		
-        console.log(email, name, password,photoURL);
+        console.log(email, name, password);
         form.reset()
 		singUpAuth(email ,password)
 		.then((userCredential) => {

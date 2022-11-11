@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -7,6 +7,7 @@ import { userContext } from '../../Context/AuthContext';
 
 
 const Register = () => {
+	const navigate = useNavigate();
 
     const {registerAuth} = useContext(userContext)
     const singUpHandler = (e) =>{
@@ -21,6 +22,7 @@ const Register = () => {
 		.then((userCredential) => {
 			const user = userCredential.user;
 			console.log(user);
+			navigate('/login')
 			toast.success('Register Successfully')
 			})
 			.catch(error=> 
@@ -28,7 +30,7 @@ const Register = () => {
 					position: toast.POSITION.TOP_CENTER
 				})
 				
-				) 
+			) 
     }
 
 

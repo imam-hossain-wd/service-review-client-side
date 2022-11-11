@@ -13,10 +13,10 @@ const BookingRow = ({ booking, handleDelete , handleStatusUpdate }) => {
     status
   } = booking;
 
-  // console.log(handleDelete);
+
 
   const [bookingService, setBookingService] = useState({});
-  console.log(bookingId);
+
 
   useEffect(() => {
       fetch(`http://localhost:5000/services/${bookingId}`)

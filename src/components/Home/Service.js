@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FaStar } from 'react-icons/fa';
 
 const Service = ({service}) => {
     const { _id, img, price, name,title,date, details,rating } = service;
@@ -8,9 +9,21 @@ const Service = ({service}) => {
             <figure><img src={img} alt="Shoes" /></figure>
             <div className="card-body">
                 <h2 className="card-title">{title}</h2>
-                <h2 className="card-title">{name}</h2>
                 <p>{details}</p>
-                <p>{rating}</p>
+               <div className='w-24'>
+               <div className='flex justify-between items-center'> 
+                  <div className='flex text-yellow-400'>
+                    <FaStar/>
+                    <FaStar/>
+                    <FaStar/>
+                    <FaStar/>
+                    <FaStar/>
+                  </div>
+                
+                
+                <div> {rating}</div>
+                 </div>
+               </div>
                 <p className='text-2xl text-orange-600 font-semibold'>Price: ${price}</p>
                 <p>{date}</p>
                 <div className="card-actions justify-end">

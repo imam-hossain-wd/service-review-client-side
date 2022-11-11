@@ -1,28 +1,34 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { userContext } from '../../Context/AuthContext';
 
 
 const Register = () => {
 
-    const {singUpAuth} = useContext(userContext)
+    const {registerAuth} = useContext(userContext)
     const singUpHandler = (e) =>{
         e.preventDefault()
         const form = e.target;
         const email = form.email.value;
         const name = form.name.value;
         const password = form.password.value;
-        // const photoURL = form.url.value;
-		
-        console.log(email, name, password);
+		console.log(email , name, password);
         form.reset()
-		singUpAuth(email ,password)
+		registerAuth(email ,password)
 		.then((userCredential) => {
 			const user = userCredential.user;
 			console.log(user);
+			toast.success('Register Successfully')
 			})
-			.catch(error=>console.log(error)) 
+			.catch(error=> 
+				toast.error(error.message , {
+					position: toast.POSITION.TOP_CENTER
+				})
+				
+				) 
     }
 
 

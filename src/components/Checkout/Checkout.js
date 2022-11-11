@@ -17,7 +17,7 @@ const Checkout = () => {
         const message = form.message.value;
 
         const booking = {
-            booking: _id,
+            bookingId: _id,
             bookingName: title,
             price,
             customer: name,
@@ -58,8 +58,8 @@ const Checkout = () => {
         <div className=' mx-auto' style={{width:"700px"}}>
             
             <form  onSubmit={handlePlaceOrder}>
-                <h2 className="text-4xl text-center">You are about to order: {title}</h2>
-                <h4 className="text-3xl">Price: {price}</h4>
+                <h2 className="text-3xl text-center mt-5">You are about to booking: {title}</h2>
+                <h4 className="text-3xl m-2">Price: {price}</h4>
                 <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
                     <input name="firstName" type="text" placeholder="First Name" className="input input-ghost w-full  input-bordered" required />
                     <input name="lastName" type="text" placeholder="Last Name" className="input input-ghost w-full  input-bordered" required/>

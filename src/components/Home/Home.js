@@ -16,7 +16,7 @@ const Home = () => {
     return (
         <div>
 
-            {/* carousel */}
+  
 
             <div className="carousel w-full">
   <div id="slide1" className="carousel-item relative w-full">
@@ -60,6 +60,9 @@ const Home = () => {
                 service={service}
                 ></Service>)
            }
+             </div>
+             <div className='flex justify-center m-5'>
+             <button className="btn  btn-primary text center "> see All Events</button>
              </div>
            </div>
 

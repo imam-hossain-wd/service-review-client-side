@@ -21,7 +21,7 @@ const {logInAuth , logInWithGoogle , logInWithGithub} = useContext(userContext)
 		.then((userCredential) => {	
 			const user = userCredential.user;
 			console.log(user);
-			toast.success("Successfully log in !", {
+			toast.success("Successfully login!", {
 				position: toast.POSITION.TOP_CENTER
 			  });
 		  })

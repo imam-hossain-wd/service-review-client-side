@@ -1,8 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
-const Service = ({ service }) => {
+const ServiceCart = ({ service }) => {
   const { _id, img, price, name, title, date, details, rating } = service;
   return (
     <div className="card card-compact w-80 rounded bg-base-100 shadow-xl">
@@ -51,4 +51,4 @@ const Service = ({ service }) => {
   );
 };
 
-export default Service;
+export default ServiceCart;

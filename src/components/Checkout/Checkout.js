@@ -4,9 +4,8 @@ import { userContext } from '../../Context/AuthContext';
 import { toast } from 'react-toastify';
 
 const Checkout = () => {
-    const { _id, title, price} = useLoaderData();
+    const { _id, title, price,img,rating,date} = useLoaderData();
     const {user} = useContext(userContext)
-    console.log(title);
 
     const handlePlaceOrder = event => {
         event.preventDefault();
@@ -55,11 +54,15 @@ const Checkout = () => {
     }
 
     return (
-        <div className=' mx-auto' style={{width:"700px"}}>
+        <div className=' mx-auto w-3/6'>
             
             <form  onSubmit={handlePlaceOrder}>
-                <h2 className="text-3xl text-center mt-5">You are about to booking: {title}</h2>
-                <h4 className="text-3xl m-2">Price: {price}</h4>
+                <h2 className="text-2xl text-center mt-5">You are about to booking: {title}</h2>
+                <img src={img} className="w-4/5 h-64 mx-auto mt-5 rounded" alt="" />
+                <div className='flex justify-between items-center'>
+                <h4 className="text-xl m-2">Price: {price}</h4>
+                <p> Date: {date} </p>
+                </div>
                 <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
                     <input name="firstName" type="text" placeholder="First Name" className="input input-ghost w-full  input-bordered" required />
                     <input name="lastName" type="text" placeholder="Last Name" className="input input-ghost w-full  input-bordered" required/>

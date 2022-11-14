@@ -8,7 +8,7 @@ const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const {user , logOut} = useContext(userContext);
 
-    console.log(user?.uid);
+    // console.log(user?.uid);
 
     const handleLogOut = ()=>{
       logOut()
@@ -65,7 +65,8 @@ const Header = () => {
                 </li>
                 
                {
-                user?.uid &&  <li>
+                user?.uid &&  <>
+                <li>
                 <Link
                   to="/booking"
                   aria-label="Product pricing"
@@ -74,7 +75,22 @@ const Header = () => {
                 >
                   Booking
                 </Link>
+              </li> 
+
+              <li>
+              <Link
+                to="/my-review"
+                aria-label="Product pricing"
+                title="Product pricing"
+                className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+              >
+                Review
+              </Link>
               </li>
+
+                
+                </>
+
                }
 
                 <li>

@@ -8,11 +8,23 @@ const Booking = () => {
   const { user, logOut } = useContext(userContext);
   const [bookings, setBookings] = useState([]);
 
+  // console.log(user.email);
   useEffect(() => {
-    fetch(`http://localhost:5000/bookings?email=${user?.email}`)
-      .then((res) => res.json())
+    fetch(`http://localhost:5000/bookings?email=${user?.email}`, {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem('Service-token')}`
+      }
+    })
+      .then((res) => {
+        if(res.status === 401 || res.status === 403){
+          logOut()
+        }
+        return res.json()
+      }) 
+        
       .then((data) => setBookings(data));
-  }, [user?.email]);
+  }, [user?.email, logOut]);
+  
 
   const handleDelete = (id) => {
     const proceed = window.confirm(
@@ -62,24 +74,24 @@ const Booking = () => {
 
   return (
     <div>
-      <h2 className="text-5xl">You have Bookings {bookings.length}</h2>
+      <h2 className="text-3xl text-center m-3">You have Bookings {bookings.length}</h2>
 
       <div className="overflow-x-auto w-full">
-        <table className="table w-full">
+        <table className="table sm:w-full md:w-full  lg:w-96 mx-auto">
           <thead>
             <tr>
               <th></th>
-              <th>Name</th>
-              <th>Job</th>
-              <th>Favorite Color</th>
-              <th></th>
+              <th>Customer Details</th>
+              <th>Place</th>
+              <th>Email</th>
+              <th>Booking Status</th>
             </tr>
           </thead>
           <tbody>
-            {bookings.map((booking) => (
+            {bookings.map((bookingDetails) => (
               <BookingRow
-                key={booking._id}
-                booking={booking}
+                key={bookingDetails._id}
+                bookingDetails={bookingDetails}
                 handleDelete={handleDelete}
                 handleStatusUpdate={handleStatusUpdate}
               ></BookingRow>

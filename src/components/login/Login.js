@@ -1,13 +1,13 @@
 import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { userContext } from '../../Context/AuthContext';
-import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { toast } from 'react-toastify';
+import { userContext } from '../../Context/AuthContext';
+import SocialLogIn from '../../shared/SocialLogIn/SocialLogIn';
 
 
 
 const Login = () => {
-const {logInAuth , logInWithGoogle , logInWithGithub} = useContext(userContext)
+const {logInAuth} = useContext(userContext);
 const location = useLocation();
 const navigate = useNavigate();
 const from = location.state?.from?.pathname || '/';
@@ -45,9 +45,6 @@ const from = location.state?.from?.pathname || '/';
 				localStorage.setItem('Service-token', data.token);
 				navigate(from, {replace:true})
 			})
-
-
-
 			toast.success("Successfully login!", {
 				position: toast.POSITION.TOP_CENTER
 			  });
@@ -60,63 +57,6 @@ const from = location.state?.from?.pathname || '/';
 			
 		  })
 	} 
-
-	//  log in with github
-	const singInWithGithub = ()=>{
-		logInWithGithub()
-		.then((result) => {
-		const user = result.user;
-		console.log(user);
-		toast.success("Successfully Log in Github !", {
-			position: toast.POSITION.TOP_CENTER
-		  });
-		
-		
-		  }).catch((error) => {
-			const errorMessage = error.message;
-			toast.error(errorMessage, {
-				position: toast.POSITION.TOP_CENTER
-			  });
-		  });
-	}
-// sing in with google 
-const singInWithGoogle=()=>{
-	logInWithGoogle()
-	.then((result) =>{
-		const user = result.user;
-		console.log(user);
-		toast.success("Successfully log in with Google !", {
-			position: toast.POSITION.TOP_CENTER
-		  });
-		  const currentUser = {
-			email: user.email
-		}
-
-		console.log(currentUser);
-
-		// get jwt token
-		fetch('http://localhost:5000/jwt', {
-			method: 'POST',
-			headers: {
-				'content-type': 'application/json'
-			},
-			body: JSON.stringify(currentUser)
-		})
-		.then(res => res.json())
-		.then(data => {
-			console.log(data);
-			localStorage.setItem('genius-token', data.token);
-			
-		});
-	})
-	.catch((error)=>{
-		const errorMessage = error.message;
-			toast.error(errorMessage, {
-				position: toast.POSITION.TOP_CENTER
-			});
-
-	})
-}
 
     return (
 		<div>
@@ -140,22 +80,7 @@ const singInWithGoogle=()=>{
 		<button className="block w-full p-3 text-center rounded-sm dark:text-gray-900 bg-violet-400">Sign in</button>
 	</form>
 
-	<div className="flex items-center pt-4 space-x-1">
-		<div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
-		<p className="px-3 text-sm dark:text-gray-400">Login with social accounts</p>
-		<div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
-	</div>
-	<div className="flex justify-center space-x-4">
-	
-		
-		<button onClick={singInWithGoogle} aria-label="Log in with Twitter" className="p-3 rounded-sm">
-      <Link className='text-2xl'><FaGoogle/></Link>
-		</button>
-
-		<button onClick={singInWithGithub} aria-label="Log in with GitHub" className="p-3 rounded-sm">
-		<Link className='text-2xl'><FaGithub></FaGithub> </Link>
-		</button>
-	</div>
+	<SocialLogIn/>
 	
 	<p className="text-xs text-center sm:px-6 dark:text-gray-400">Don't have an account? 
 		<Link rel="noopener noreferrer" to='/register' className="underline dark:text-gray-100"> Register</Link>

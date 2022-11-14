@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const BookingRow = ({ booking, handleDelete , handleStatusUpdate }) => {
+const BookingRow = ({ bookingDetails, handleDelete , handleStatusUpdate }) => {
   const {
     customer,
     email,
@@ -11,7 +11,9 @@ const BookingRow = ({ booking, handleDelete , handleStatusUpdate }) => {
     bookingId,
     bookingName,
     status
-  } = booking;
+  } = bookingDetails;
+
+  console.log(bookingDetails);
 
 
 
@@ -19,7 +21,7 @@ const BookingRow = ({ booking, handleDelete , handleStatusUpdate }) => {
 
 
   useEffect(() => {
-      fetch(`http://localhost:5000/services/${bookingId}`)
+      fetch(`http://localhost:5000/service/${bookingId}`)
           .then(res => res.json())
           .then(data => setBookingService(data));
   }, [bookingId])
@@ -55,9 +57,13 @@ const BookingRow = ({ booking, handleDelete , handleStatusUpdate }) => {
         {bookingName}
 
         <br />
-        <span className="badge badge-ghost badge-sm">${price}</span>
+        <span className="badge badge-ghost badge-sm">{price}</span>
       </td>
-      <td>Purple</td>
+
+      <td>
+        <p>{email}</p>
+      </td>
+      
       <th>
                 <button 
                 onClick={() => handleStatusUpdate(_id)}

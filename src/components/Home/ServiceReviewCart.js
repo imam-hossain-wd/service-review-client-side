@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { FaUser } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import { userContext } from "../../Context/AuthContext";
 
 const ServiceReviewCart = ({ review, handleDelete }) => {
@@ -36,9 +37,11 @@ console.log(review);
               </td>
 
               <th>
-                <button className="btn btn-ghost btn-xs  btn-outline mr-2">
+               
+               <button className="btn btn-ghost btn-xs  btn-outline mr-2">
                   Edit
                 </button>
+              
                 <button
                   onClick={() => handleDelete(id)}
                   className="btn btn-ghost btn-xs  btn-outline btn-error"

@@ -95,10 +95,6 @@ const handleDelete = (id) => {
       });
   }
 };
-
-
- 
-
   return (
     <div>
       <div className='text-3xl font-bold mb-3'>This service has : {userRivew.length} review</div>

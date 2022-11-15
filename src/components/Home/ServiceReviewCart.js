@@ -6,12 +6,15 @@ import { userContext } from "../../Context/AuthContext";
 const ServiceReviewCart = ({ review, handleDelete }) => {
   const { user } = useContext(userContext);
 
+  // const {_id} = review;
   const id = review?._id;
   const customer = review?.customer;
   const message = review?.message;
   
 //  const photo = user?.photoURL || <FaUser/>
 console.log(review);
+// console.log(_id);
+
  
 
   return (
@@ -38,9 +41,12 @@ console.log(review);
 
               <th>
                
-               <button className="btn btn-ghost btn-xs  btn-outline mr-2">
+               {/* <button className="btn btn-ghost btn-xs  btn-outline mr-2">
                   Edit
-                </button>
+                </button> */}
+            <button className="btn btn-ghost btn-xs  btn-outline mr-2">
+             <Link to={`/update/${id}`}>Edit</Link>
+            </button>
               
                 <button
                   onClick={() => handleDelete(id)}

@@ -37,7 +37,7 @@ const handleInputChange = (event) =>{
 }
 
   return (
-    <form onSubmit={updateReviewHandler} className="mt-5">
+    <form onSubmit={updateReviewHandler} className="mt-5 w-3/5 mx-auto">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         <input
           onChange={handleInputChange}

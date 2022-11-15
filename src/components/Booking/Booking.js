@@ -3,10 +3,12 @@ import { userContext } from "../../Context/AuthContext";
 import BookingRow from "./BookingRow";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
+import { useTitle } from "../../hooks/useTittle";
 
 const Booking = () => {
   const { user, logOut } = useContext(userContext);
   const [bookings, setBookings] = useState([]);
+  useTitle('Booking')
 
   // console.log(user.email);
   useEffect(() => {
@@ -76,15 +78,15 @@ const Booking = () => {
     <div>
       <h2 className="text-3xl text-center m-3">You have Bookings {bookings.length}</h2>
 
-      <div className="overflow-x-auto w-full">
-        <table className="table sm:w-full md:w-full  lg:w-96 mx-auto">
-          <thead>
+      <div className="overflow-x-auto w-full mb-5">
+        <table className="table sm:w-full md:w-full  lg:w-96 mx-auto" >
+          <thead >
             <tr>
               <th></th>
               <th>Customer Details</th>
               <th>Place</th>
               <th>Email</th>
-              <th>Booking Status</th>
+              <th>Status</th>
             </tr>
           </thead>
           <tbody>

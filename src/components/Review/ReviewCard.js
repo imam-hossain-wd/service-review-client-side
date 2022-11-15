@@ -24,7 +24,7 @@ const ReviewCard = ({ reviewDetail , handleDelete }) => {
 
         <td>
           
-          <span className="badge badge-ghost font-bold">{message}</span>
+          <span className="badge badge-ghost text-lg">{message}</span>
         </td>
         <td>{date}</td>
 

@@ -1,18 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
+import { useTitle } from "../../hooks/useTittle";
 
 const Service = ({ service }) => {
+  
   const { _id, img, price, name, title, date, details, rating } = service;
   return (
-    <div className="card card-compact w-80 rounded bg-base-100 shadow-xl">
+    <div className="card card-compact w-80 rounded bg-base-100 shadow-xl ">
       <div>
         <img src={img} alt="Shoes" className="h-48 w-full rounded" />
       </div>
 
       <div className="card-body">
         <h2 className="card-title">{title}</h2>
-        {/* <p>{details}</p> */}
         <div className="flex items-center justify-between">
           <div className="w-24">
             <div className="flex justify-between items-center">

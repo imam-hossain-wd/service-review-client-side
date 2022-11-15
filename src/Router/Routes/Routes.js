@@ -12,6 +12,7 @@ import PrivateRoute from "../PrivateRouter/PrivateRoute";
 import ServiceDetails from "../../components/Home/ServiceDetails";
 import Review from "../../components/Review/Review";
 import Update from "../../components/update/Update";
+import Profile from "../../shared/Header/Profile";
 
 export const router = createBrowserRouter([
   {
@@ -23,6 +24,7 @@ export const router = createBrowserRouter([
       { path: "/services", element: <Service /> },
       { path: "/blog", element: <Blog /> },
       { path: "/my-review", element: <Review/> },
+      { path: "/profile", element: <Profile/> },
       {
         path: "/booking",
         element: (

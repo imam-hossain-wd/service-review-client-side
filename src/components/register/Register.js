@@ -4,9 +4,11 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { userContext } from '../../Context/AuthContext';
+import { useTitle } from '../../hooks/useTittle';
 
 
 const Register = () => {
+	useTitle('Register')
 	const navigate = useNavigate();
 
     const {registerAuth} = useContext(userContext)
@@ -36,7 +38,7 @@ const Register = () => {
 
     return (
         <div>
-            <div onSubmit={singUpHandler}  style={{backgroundColor:'#111827'}} className="w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-900 text-white mt-5">
+            <div onSubmit={singUpHandler}  style={{backgroundColor:'#111827'}} className="w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-900 text-white mt-5 mx-auto">
 	<h1 className="text-2xl font-bold text-center ">Register</h1>
 	
 	<form noValidate="" action="" className="space-y-6 ng-untouched ng-pristine ng-valid">
@@ -58,7 +60,7 @@ const Register = () => {
 	</form>
 	
 
-	<p className="text-xs text-center sm:px-6 font-bold">Already have an  account?
+	<p className="text-md text-center sm:px-6 ">Already have an  account?
 
 		<Link rel="noopener noreferrer" to='/login' className="underline dark:text-gray-100"> Log in</Link>
 	</p>

@@ -2,11 +2,13 @@ import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { userContext } from '../../Context/AuthContext';
+import { useTitle } from '../../hooks/useTittle';
 import SocialLogIn from '../../shared/SocialLogIn/SocialLogIn';
 
 
 
 const Login = () => {
+	useTitle('Login')
 const {logInAuth} = useContext(userContext);
 const location = useLocation();
 const navigate = useNavigate();
@@ -61,7 +63,7 @@ const from = location.state?.from?.pathname || '/';
     return (
 		<div>
 		
-        <div style={{backgroundColor:'#111827'}} onSubmit={singInHandler} className="w-full max-w-md p-8 space-y-3 rounded-xl  text-white mt-5" >
+        <div style={{backgroundColor:'#111827'}} onSubmit={singInHandler} className="w-full max-w-md p-8 space-y-3 rounded-xl  text-white mt-5 mx-auto" >
 	<h1 className="text-2xl font-bold text-center">Log In</h1>
 	<p className='text-center'>Sign in to access your account</p>
 	<form noValidate="" action="" className="space-y-6 ng-untouched ng-pristine ng-valid">
@@ -82,7 +84,7 @@ const from = location.state?.from?.pathname || '/';
 
 	<SocialLogIn/>
 	
-	<p className="text-xs text-center sm:px-6 dark:text-gray-400">Don't have an account? 
+	<p className="text-md text-center sm:px-6 dark:text-gray-400">Don't have an account? 
 		<Link rel="noopener noreferrer" to='/register' className="underline dark:text-gray-100"> Register</Link>
 	</p>
 	

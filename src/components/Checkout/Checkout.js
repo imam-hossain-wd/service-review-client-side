@@ -2,10 +2,12 @@ import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { userContext } from '../../Context/AuthContext';
 import { toast } from 'react-toastify';
+import { useTitle } from '../../hooks/useTittle';
 
 const Checkout = () => {
     const { _id, title, price,img,rating,date} = useLoaderData();
     const {user} = useContext(userContext)
+    useTitle('Checkout')
 
     const handlePlaceOrder = event => {
         event.preventDefault();
@@ -54,10 +56,10 @@ const Checkout = () => {
     }
 
     return (
-        <div className=' mx-auto w-3/6'>
+        <div className=' mx-auto w-3/6 m-5'>
             
             <form  onSubmit={handlePlaceOrder}>
-                <h2 className="text-2xl text-center mt-5">You are about to booking: {title}</h2>
+                <h2 className="text-2xl text-center mt-5 bg-black text-white p-5 font-bold">You are about to booking: {title}</h2>
                 <img src={img} className="w-4/5 h-64 mx-auto mt-5 rounded" alt="" />
                 <div className='flex justify-between items-center'>
                 <h4 className="text-xl m-2">Price: {price}</h4>
@@ -72,7 +74,7 @@ const Checkout = () => {
                 </div>
                 <textarea name="message" className="textarea textarea-bordered h-24 w-full mt-3" placeholder="Your Message" required></textarea>
 
-                <input className='btn mt-2' type="submit" value="Place Your Order" />
+                <input className='btn mt-2' type="submit" value="Booking Now" />
             </form>
         </div>
     );

@@ -13,7 +13,7 @@ const BookingRow = ({ bookingDetails, handleDelete , handleStatusUpdate }) => {
     status
   } = bookingDetails;
 
-  console.log(bookingDetails);
+  
 
 
 

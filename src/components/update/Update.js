@@ -1,16 +1,18 @@
 import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const Update = () => {
   const storedUser = useLoaderData();
-  // console.log(storedUser);
   const [user, setUser] = useState(storedUser);
   console.log(user);
   // console.log(storedUser);
 
   const updateReviewHandler = (e) => {
     e.preventDefault();
-    fetch(`http://localhost:5000/users/${storedUser._id}`, {
+    
+    fetch(`https://service-review-server-xi.vercel.app/users/${storedUser._id}`, {
       method: 'PUT',
       headers: {
           'content-type': 'application/json'
@@ -20,7 +22,12 @@ const Update = () => {
   .then(res => res.json())
   .then(data => {
       if (data.modifiedCount > 0){
-          alert('user updated')
+          // alert('user updated')
+          toast.success("User Updated successfully", {
+            position: toast.POSITION.TOP_CENTER
+          });
+          
+
           console.log(data);
       }
       

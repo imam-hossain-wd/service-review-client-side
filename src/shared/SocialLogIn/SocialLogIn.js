@@ -23,7 +23,7 @@ const SocialLogIn = () => {
         console.log(currentUser);
 
         //get jwt token
-        fetch('http://localhost:5000/jwt', {
+        fetch('https://service-review-server-xi.vercel.app/jwt', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -42,11 +42,6 @@ const SocialLogIn = () => {
             position: toast.POSITION.TOP_CENTER
           });
       })
-          
-          
-          
-          
-          
           .catch((error) => {
 			const errorMessage = error.message;
 			toast.error(errorMessage, {
@@ -66,7 +61,7 @@ const singInWithGoogle=()=>{
         }
         console.log(currentUser);
 
-		fetch('http://localhost:5000/jwt', {
+		fetch('https://service-review-server-xi.vercel.app/jwt', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

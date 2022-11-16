@@ -10,7 +10,8 @@ const Review = () => {
   const [review, setReview] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/users?email=${user?.email}`)
+    if(!user?.email) return;
+    fetch(`https://service-review-server-xi.vercel.app/users?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => setReview(data));
   }, [user?.email]);
@@ -21,7 +22,7 @@ const Review = () => {
       "Are you sure, you want to cancel this order"
     );
     if (proceed) {
-      fetch(`http://localhost:5000/users/${id}`, {
+      fetch(`https://service-review-server-xi.vercel.app/users/${id}`, {
         method: "DELETE",
         headers: {
           authorization: `Bearer ${localStorage.getItem("service-booking")}`,
@@ -56,7 +57,12 @@ const Review = () => {
             </tr>
           </thead>
           <tbody>
-            {review.map((reviewDetail) => (
+          
+            {
+              review.length>0 && 
+            
+            
+            review.map((reviewDetail) => (
               <ReviewCard
                 key={reviewDetail._id}
                 reviewDetail={reviewDetail}

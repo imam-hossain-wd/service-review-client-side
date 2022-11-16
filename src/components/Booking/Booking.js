@@ -11,8 +11,9 @@ const Booking = () => {
   useTitle('Booking')
 
   // console.log(user.email);
+  
   useEffect(() => {
-    fetch(`http://localhost:5000/bookings?email=${user?.email}`, {
+    fetch(`https://service-review-server-xi.vercel.app/bookings?email=${user?.email}`, {
       headers: {
         authorization: `Bearer ${localStorage.getItem('Service-token')}`
       }
@@ -33,7 +34,7 @@ const Booking = () => {
       "Are you sure, you want to cancel this order"
     );
     if (proceed) {
-      fetch(`http://localhost:5000/booking/${id}`, {
+      fetch(`https://service-review-server-xi.vercel.app/booking/${id}`, {
         method: "DELETE",
         headers: {
           authorization: `Bearer ${localStorage.getItem("service-booking")}`,
@@ -53,7 +54,7 @@ const Booking = () => {
   };
 
   const handleStatusUpdate = id => {
-    fetch(`http://localhost:5000/booking/${id}`, {
+    fetch(`https://service-review-server-xi.vercel.app/booking/${id}`, {
         method: 'PATCH', 
         headers: {
             'content-type': 'application/json'

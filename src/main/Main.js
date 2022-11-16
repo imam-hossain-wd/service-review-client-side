@@ -5,11 +5,13 @@ import Header from '../shared/Header/Header';
 
 const Main = () => {
     return (
-        <div>
+        <>
             <Header/>
             <Outlet/>
             <Footer/>
-        </div>
+            
+            
+        </>
     );
 };
 

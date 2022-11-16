@@ -24,7 +24,7 @@ const Header = () => {
   };
 
   return (
-    <div className="bg-gray-900  ">
+    <div className="bg-gray-900 ">
       <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
         <div className="relative flex items-center justify-between ">
           <div className="flex items-center">
@@ -160,7 +160,7 @@ const Header = () => {
               </div>
             )}
           </ul>
-          <div className="lg:hidden text-black ">
+          <div className="lg:hidden ">
             <button
               aria-label="Open Menu"
               title="Open Menu"
@@ -183,8 +183,8 @@ const Header = () => {
               </svg>
             </button>
             {isMenuOpen && (
-              <div className="absolute top-0 left-0 w-full ">
-                <div className="p-5 bg-white border rounded shadow-sm">
+              <div className="absolute top-0 left-0 w-full text-black">
+                <div className="p-5 bg-gray-900 text-white border rounded shadow-sm">
                   <div className="flex items-center justify-between mb-4">
                     <div>
                       <Link
@@ -194,7 +194,7 @@ const Header = () => {
                         className="inline-flex items-center"
                       >
                         <img src={"logo.jpg"} className="w-12 h-12" alt="" />
-                        <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
+                        <span className="ml-2 text-xl font-bold tracking-wide text-white uppercase">
                           Travel Zone
                         </span>
                       </Link>
@@ -277,7 +277,7 @@ const Header = () => {
             </li>
 
             {!user?.uid ? (
-              <div className="flex">
+              <div className="">
         
                 <li>
                   {" "}
@@ -296,7 +296,7 @@ const Header = () => {
                     to="/register"
                     aria-label="Our product"
                     title="Our product"
-                    className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400 ml-7"
+                    className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400 mt-2"
                   >
                     Register
                   </Link>

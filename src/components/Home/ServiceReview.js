@@ -11,11 +11,6 @@ const ServiceReview = () => {
   const data = useLoaderData();
   const { date, details, img, name, price, rating, title, _id } = data;
 
-  // const photo = data.img;
-  // const price = data.price;
-  // const place = data.name;
-
-  // console.log(photo);
 
 
   //review handler
@@ -28,6 +23,7 @@ const ServiceReview = () => {
     const message = form.message.value;
 
     const comment = {
+      reviewId :_id,
       price,
       customer: name,
       email,
@@ -39,8 +35,8 @@ const ServiceReview = () => {
     
     };
 
-    
-    fetch("http://localhost:5000/users", {
+
+    fetch("https://service-review-server-xi.vercel.app/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -50,6 +46,7 @@ const ServiceReview = () => {
     })
       .then((res) => res.json())
       .then((data) => {
+        // console.log(data);
         
         if (data.acknowledged) {
           // setUSerReview(data)
@@ -62,13 +59,14 @@ const ServiceReview = () => {
       .catch((er) => console.error(er));
   };
 
+
 //get reviews
 
 useEffect(()=>{
-  fetch("http://localhost:5000/users")
+  fetch(`https://service-review-server-xi.vercel.app/users?reviewId=${_id}`)
   .then((res) => res.json())
   .then((data) => setUSerReview(data));
-}, [userRivew]);
+}, [userRivew]); 
 
 // delete handler 
 
@@ -77,7 +75,7 @@ const handleDelete = (id) => {
     "Are you sure, you want to cancel this order"
   );
   if (proceed) {
-    fetch(`http://localhost:5000/users/${id}`, {
+    fetch(`https://service-review-server-xi.vercel.app/users/${id}`, {
       method: "DELETE",
       headers: {
         authorization: `Bearer ${localStorage.getItem("service-booking")}`,

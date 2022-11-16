@@ -14,8 +14,6 @@ const ServiceDetails = ({ service }) => {
   return (
     <div className="grid lg:grid-cols-2 sm:grid-cols-1 md:grid-cols-1 gap-10">
       <div className="m-5">
-        <ServiceReviewCart />
-
         <ServiceReview />
       </div>
 
@@ -75,69 +73,7 @@ const ServiceDetails = ({ service }) => {
             <Link to={`/checkout/${_id}`}>Booking Now</Link>
           </button>
          </div>
-
         </div>
-
-
-            {/* <div className="space-y-2">
-              <a rel="noopener noreferrer" href="#" className="block">
-                <h3 className="text-xl font-semibold dark:text-violet-400">
-                  Facere ipsa nulla corrupti praesentium pariatur architecto
-                </h3>
-              </a>
-              <p className="leading-snug dark:text-gray-400">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Repellat, excepturi. Lorem ipsum dolor sit amet consectetur,
-                adipisicing elit. Repellat, excepturi.
-              </p>
-            </div>
-          </div>
-        </div> */}
-
-        {/* <div>
-          <img className="w-4/5 mx-auto h-full mt-4 h-60" src={img} alt="" />
-
-          <div className="">
-            <h2 className="text-2xl m-3 font-bold text-center">{name}</h2>
-          </div>
-          <div className="flex justify-between ">
-
-            <div className="flex items-center">
-              <FaRegMoneyBillAlt></FaRegMoneyBillAlt> <p className="ml-2">{price}</p>
-            </div>
-           
-            <div className="flex items-center">
-              <FaClock></FaClock> <p className="ml-2">{date}</p>
-            </div>
-
-            <div className="flex items-center">
-              <div className="flex  text-amber-400">
-                <FaStar></FaStar>
-                <FaStar></FaStar>
-                <FaStar></FaStar>
-                <FaStar></FaStar>
-                <FaStar></FaStar>
-              </div>
-              <p className="ml-2"> {rating}</p>
-            </div>
-          </div>
-
-          <p className="mt-3">{details}</p>
-
-         <div className="flex justify-between">
-         <div className="mt-5">
-            <h1 className="text-xl bg-black w-48 p-5 rounded text-white">
-              Price: {price}
-            </h1>
-          </div>
-
-          <button className="px-5 rounded bg-black text-white  mt-3 py-3 text-xl">
-            {" "}
-            <Link to={`/checkout/${_id}`}>Booking Now</Link>
-          </button>
-         </div>
-
-        </div> */}
       </div>
     </div>
     </div>

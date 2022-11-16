@@ -28,7 +28,7 @@ const Checkout = () => {
         }
        
 
-        fetch('http://localhost:5000/booking', {
+        fetch('https://service-review-server-xi.vercel.app/booking', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

@@ -21,7 +21,7 @@ const BookingRow = ({ bookingDetails, handleDelete , handleStatusUpdate }) => {
 
 
   useEffect(() => {
-      fetch(`http://localhost:5000/service/${bookingId}`)
+      fetch(`https://service-review-server-xi.vercel.app/service/${bookingId}`)
           .then(res => res.json())
           .then(data => setBookingService(data));
   }, [bookingId])

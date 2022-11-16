@@ -40,15 +40,17 @@ export const router = createBrowserRouter([
 
       {
         path: "/services/:id",
-        element: <ServiceDetails />,
+        element: <PrivateRoute> 
+          <ServiceDetails />
+          </PrivateRoute> ,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/service/${params.id}`)
+          fetch(`https://service-review-server-xi.vercel.app/service/${params.id}`)
       },
 
       {
         path: "/update/:id",
         element: <Update/>,
-        loader: ({params})=> fetch(`http://localhost:5000/users/${params.id}` )
+        loader: ({params})=> fetch(`https://service-review-server-xi.vercel.app/users/${params.id}` )
        
       },
 
@@ -60,7 +62,7 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/service/${params.id}`),
+          fetch(`https://service-review-server-xi.vercel.app/service/${params.id}`),
       },
     ],
   },

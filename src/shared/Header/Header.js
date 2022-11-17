@@ -22,7 +22,7 @@ const Header = () => {
       })
       .catch((error) => console.error(error));
   };
-
+//md:mb-80 lg:mb-5 sm:mb-28
   return (
     <div className="bg-gray-900 ">
       <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
@@ -75,6 +75,17 @@ const Header = () => {
                     className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
                   >
                     Booking
+                  </Link>
+                </li>
+
+                <li>
+                  <Link
+                    to="/add-service"
+                    aria-label="Product pricing"
+                    title="Product pricing"
+                    className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+                  >
+                    Add Service
                   </Link>
                 </li>
 
@@ -160,7 +171,7 @@ const Header = () => {
               </div>
             )}
           </ul>
-          <div className="lg:hidden ">
+          <div className="lg:hidden md:block sm:block">
             <button
               aria-label="Open Menu"
               title="Open Menu"
@@ -183,7 +194,8 @@ const Header = () => {
               </svg>
             </button>
             {isMenuOpen && (
-              <div className="absolute top-0 left-0 w-full text-black">
+              <div className="mb-80">
+                <div className="absolute top-0 left-0 w-full text-black ">
                 <div className="p-5 bg-gray-900 text-white border rounded shadow-sm">
                   <div className="flex items-center justify-between mb-4">
                     <div>
@@ -249,6 +261,17 @@ const Header = () => {
                     className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
                   >
                     Booking
+                  </Link>
+                </li>
+
+                <li>
+                  <Link
+                    to="/add-service"
+                    aria-label="Product pricing"
+                    title="Product pricing"
+                    className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+                  >
+                    Add Service
                   </Link>
                 </li>
 
@@ -336,6 +359,7 @@ const Header = () => {
                     </ul>
                   </nav>
                 </div>
+              </div>
               </div>
             )}
           </div>

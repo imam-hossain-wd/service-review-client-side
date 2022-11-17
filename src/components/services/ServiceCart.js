@@ -12,7 +12,18 @@ const ServiceCart = ({ service }) => {
 
       <div className="card-body">
         <h2 className="card-title">{title}</h2>
-        {/* <p>{details}</p> */}
+        <div className="break-all text-md">
+            {
+              details?.length > 100 ? 
+              <p>{details.slice(0,150)+ '...'} 
+
+              <Link to={`/services/${_id}`} className=" underline text-md text-purple-700">Read More</Link> </p>
+              
+              :
+              <p>{details}</p>
+            }
+            
+          </div>
         <div className="flex items-center justify-between">
           <div className="w-24">
             <div className="flex justify-between items-center">

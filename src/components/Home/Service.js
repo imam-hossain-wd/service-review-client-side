@@ -6,6 +6,7 @@ import { FaStar } from "react-icons/fa";
 const Service = ({ service }) => {
   
   const { _id, img, price, name, title, date, details, rating } = service;
+  console.log(service);
   return (
     <div className="card card-compact w-80 rounded bg-base-100 shadow-xl ">
       <div>
@@ -14,6 +15,18 @@ const Service = ({ service }) => {
 
       <div className="card-body">
         <h2 className="card-title">{title}</h2>
+        <div className="break-all text-md">
+            {
+              details?.length > 100 ? 
+              <p>{details.slice(0,150)+ '...'} 
+
+              <Link to={`/services/${_id}`} className=" underline text-md text-purple-700">Read More</Link> </p>
+              
+              :
+              <p>{details}</p>
+            }
+            
+          </div>
         <div className="flex items-center justify-between">
           <div className="w-24">
             <div className="flex justify-between items-center">

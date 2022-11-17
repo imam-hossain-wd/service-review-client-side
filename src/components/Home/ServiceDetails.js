@@ -10,6 +10,7 @@ const ServiceDetails = ({ service }) => {
   const data = useLoaderData();
 
   const { date, details, img, name, price, rating, title, _id } = data;
+  console.log(details);
 
   return (
     <div className="grid lg:grid-cols-2 sm:grid-cols-1 md:grid-cols-1 gap-10">
@@ -36,6 +37,7 @@ const ServiceDetails = ({ service }) => {
               <div className="">
             <h2 className="text-2xl m-3 font-bold text-center">{name}</h2>
           </div>
+         
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
                   <FaRegMoneyBillAlt></FaRegMoneyBillAlt>{" "}

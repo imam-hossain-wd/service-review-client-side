@@ -13,6 +13,7 @@ import ServiceDetails from "../../components/Home/ServiceDetails";
 import Review from "../../components/Review/Review";
 import Update from "../../components/update/Update";
 import Profile from "../../shared/Header/Profile";
+import AddService from "../../components/Home/AddService/AddService";
 
 export const router = createBrowserRouter([
   {
@@ -37,6 +38,7 @@ export const router = createBrowserRouter([
       { path: "/login", element: <Login /> },
       { path: "/register", element: <Register /> },
       { path: "*", element: <NotFound /> },
+      { path: "/add-service", element: <AddService/> },
 
       {
         path: "/services/:id",

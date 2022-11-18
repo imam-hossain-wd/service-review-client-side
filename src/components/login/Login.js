@@ -25,6 +25,8 @@ const from = location.state?.from?.pathname || '/';
 		.then((userCredential) => {	
 			const user = userCredential.user;
 			console.log(user);
+			navigate(from, {replace:true})
+
 			
 			const currentUser = {
 				email: user.email
@@ -45,7 +47,7 @@ const from = location.state?.from?.pathname || '/';
 
 				//set token in localstorage
 				localStorage.setItem('Service-token', data.token);
-				navigate(from, {replace:true})
+				// navigate(from, {replace:true})
 			})
 			toast.success("Successfully login!", {
 				position: toast.POSITION.TOP_CENTER

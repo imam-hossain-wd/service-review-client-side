@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
+
 
 const BookingRow = ({ bookingDetails, handleDelete , handleStatusUpdate }) => {
   const {
@@ -12,15 +13,16 @@ const BookingRow = ({ bookingDetails, handleDelete , handleStatusUpdate }) => {
     bookingName,
     status
   } = bookingDetails;
-
   
 
-
+  console.log(bookingDetails);
 
   const [bookingService, setBookingService] = useState({});
 
 
   useEffect(() => {
+    if(!bookingDetails?.bookingId) return
+ 
       fetch(`https://service-review-server-xi.vercel.app/service/${bookingId}`)
           .then(res => res.json())
           .then(data => setBookingService(data));

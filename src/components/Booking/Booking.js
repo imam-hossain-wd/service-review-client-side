@@ -10,9 +10,8 @@ const Booking = () => {
   const [bookings, setBookings] = useState([]);
   useTitle('Booking')
 
-  // console.log(user.email);
-  
   useEffect(() => {
+    if(!user?.email) return
     fetch(`https://service-review-server-xi.vercel.app/bookings?email=${user?.email}`, {
       headers: {
         authorization: `Bearer ${localStorage.getItem('Service-token')}`
@@ -28,6 +27,7 @@ const Booking = () => {
       .then((data) => setBookings(data));
   }, [user?.email, logOut]);
   
+
 
   const handleDelete = (id) => {
     const proceed = window.confirm(
@@ -107,3 +107,6 @@ const Booking = () => {
 };
 
 export default Booking;
+
+
+

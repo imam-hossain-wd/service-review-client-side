@@ -17,7 +17,7 @@ const ServiceReviewCart = ({ review, handleDelete }) => {
       <div className="overflow-x-auto">
         <table className="table w-full mb-1">
           <tbody className="border">
-            <tr className="flex justify-between p-3">
+            <tr className="flex justify-between p-3 break-all">
               <td>
                 <div className="flex items-center space-x-3">
                   <div className="avatar">
@@ -30,8 +30,8 @@ const ServiceReviewCart = ({ review, handleDelete }) => {
                   </div>
                 </div>
               </td>
-              <td className="">
-                <span className="badge badge-ghost badge-sm">{message}</span>
+              <td className="break-all ">
+                <span className="badge badge-ghost badge-sm w-28 ">{message}</span>
               </td>
 
               <th>

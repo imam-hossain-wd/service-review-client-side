@@ -6,7 +6,6 @@ import { FaStar } from "react-icons/fa";
 const Service = ({ service }) => {
   
   const { _id, img, price, name, title, date, details, rating } = service;
-  console.log(service);
   return (
     <div className="card card-compact w-80 rounded bg-base-100 shadow-xl ">
       <div>

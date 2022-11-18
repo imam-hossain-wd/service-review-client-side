@@ -10,7 +10,7 @@ const ServiceDetails = ({ service }) => {
   const data = useLoaderData();
 
   const { date, details, img, name, price, rating, title, _id } = data;
-  console.log(details);
+  
 
   return (
     <div className="grid lg:grid-cols-2 sm:grid-cols-1 md:grid-cols-1 gap-10">

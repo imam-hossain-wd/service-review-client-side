@@ -16,6 +16,7 @@ const Checkout = () => {
         const email = user?.email || 'unregistered';
         const phone = form.phone.value;
         const message = form.message.value;
+        
 
         const booking = {
             bookingId: _id,
@@ -25,6 +26,7 @@ const Checkout = () => {
             email,
             phone,
             message
+            
         }
        
 
